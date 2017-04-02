@@ -5,7 +5,13 @@ package ar.edu.untref.aydoo;
  */
 public class CajaDeAhorro {
 
+    private int saldo;
+
     public int getSaldo() {
-        return 0;
+        return this.saldo;
+    }
+
+    public void acreditar(int monto) {
+        this.saldo += monto;
     }
 }
