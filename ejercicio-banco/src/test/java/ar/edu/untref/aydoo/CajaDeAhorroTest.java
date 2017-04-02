@@ -15,9 +15,10 @@ public class CajaDeAhorroTest {
     @Test
     public void deberiaIncrementarElSaldoCuandoAcredito() {
         CajaDeAhorro cajaDeAhorro = new CajaDeAhorro();
+        int monto = 10;
 
-        cajaDeAhorro.acreditar(10);
+        cajaDeAhorro.acreditar(monto);
 
-        Assert.assertEquals(10, cajaDeAhorro.getSaldo());
+        Assert.assertEquals(monto, cajaDeAhorro.getSaldo());
     }
 }
