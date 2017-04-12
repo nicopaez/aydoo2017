@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class Andata_a_cagar_forro_Test
 {
+    @Test
     public void elefante()
     {
         // En enero, Juan compra 2 kg de helado en la sucursal Caseros de la heladeria "Frio" con la tarjeta Premium.

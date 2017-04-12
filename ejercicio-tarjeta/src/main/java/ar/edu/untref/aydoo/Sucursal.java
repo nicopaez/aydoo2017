@@ -5,11 +5,22 @@ package ar.edu.untref.aydoo;
  */
 public class Sucursal {
     private int cantidadBeneficiosOtorgados;
+    private Establecimiento establecimiento;
 
     public Sucursal(String nombre, Establecimiento establecimiento) {
+        this.establecimiento = establecimiento;
     }
 
     public int getCantidadBeneficiosOtorgados() {
         return cantidadBeneficiosOtorgados;
+    }
+
+    public int aplicarDescuento(int valorBruto, Tarjeta tarjeta) {
+        DescuentoParaTarjetaPremium descuento = establecimiento.getDescuentoPremium();
+        return descuento.aplicar(valorBruto);
+    }
+
+    public void registrarCompra(Compra compra) {
+        cantidadBeneficiosOtorgados++;
     }
 }
