@@ -53,12 +53,19 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.6</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.6</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>5.0.3</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
+                    <instrumentation>
+                        <includes>
+                            <include>**/*.class</include>
+                        </includes>
+                    </instrumentation>
                     <check>
                         <branchRate>85</branchRate>
                         <lineRate>85</lineRate>
@@ -71,9 +78,18 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>clean</id>
+                        <phase>pre-site</phase>
                         <goals>
                             <goal>clean</goal>
-                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>instrument</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>instrument</goal>
+                            <goal>cobertura</goal>
                         </goals>
                     </execution>
                 </executions>
